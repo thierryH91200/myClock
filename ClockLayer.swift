@@ -15,11 +15,11 @@ class ClockLayer : NSView
     
     let digitFont  = NSFont(name : "HelveticaNeue-Thin", size  : CGFloat(15))!
 
-    var hourLayer =  CALayer()
-    var minuteLayer =  CALayer()
+    var hourLayer    =  CALayer()
+    var minuteLayer  =  CALayer()
     var secondsLayer =  CALayer()
-    let rootLayer = CALayer()
-    let imageLayer = CALayer()
+    let rootLayer    = CALayer()
+    let imageLayer   = CALayer()
     
     var clockFace = CATextLayer()
     var clockTimer: Timer = Timer()
@@ -73,38 +73,26 @@ class ClockLayer : NSView
             drawNumbers()
         }
         drawTicks()
-        
-        clockFace = setupClockFaceLayer()
-        layer?.addSublayer(clockFace)
-        
-        let timeAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-        timeAnimation.repeatCount = .greatestFiniteMagnitude
-        timeAnimation.duration = 60.0
-        timeAnimation.isRemovedOnCompletion = false
-        timeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        timeAnimation.fromValue = 0.0
-        timeAnimation.byValue = (2 * Double.pi)
-        clockFace.add(timeAnimation, forKey: "timeAnimationKey")
 
         //Draw the hours layer
         hourLayer = CALayer()
         hourLayer.backgroundColor = hourhandColor.cgColor
         hourLayer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
-        hourLayer.position = CGPoint(x: CGFloat((frame.size.width) / 2), y: 200)
+        hourLayer.position = center
         hourLayer.bounds = CGRect(x: 0, y: 0, width: 4.0, height: CGFloat(radius * 0.70))
         layer?.addSublayer(hourLayer)
         
         minuteLayer = CALayer()
         minuteLayer.backgroundColor = minutehandColor.cgColor
         minuteLayer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
-        minuteLayer.position = CGPoint(x: CGFloat(frame.size.width / 2), y: 200)
+        minuteLayer.position = center
         minuteLayer.bounds = CGRect(x: 0, y: 0, width: 2.0, height: CGFloat(radius * 0.90))
         layer?.addSublayer(minuteLayer)
         
         secondsLayer = CALayer()
         secondsLayer.backgroundColor = secondhandColor.cgColor
         secondsLayer.anchorPoint = CGPoint(x: 0.5, y: 0)
-        secondsLayer.position = CGPoint(x: CGFloat(frame.size.width / 2), y: 200)
+        secondsLayer.position = center
         secondsLayer.bounds = CGRect(x: 0, y: 0, width: 1.0, height: CGFloat(radius * 0.90))
         secondsLayer.borderColor = NSColor.red.cgColor
         layer?.addSublayer(secondsLayer)
@@ -153,6 +141,20 @@ class ClockLayer : NSView
         secondsAnimation.fromValue = -(secondsAngle * .pi / 180)
         secondsAnimation.byValue = (-2 * Double.pi)
         secondsLayer.add(secondsAnimation, forKey: "SecondAnimationKey")
+        
+        clockFace = setupClockFaceLayer()
+        layer?.addSublayer(clockFace)
+        
+        let timeAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
+        timeAnimation.repeatCount = .greatestFiniteMagnitude
+        timeAnimation.duration = 60.0
+        timeAnimation.isRemovedOnCompletion = false
+        timeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        timeAnimation.fromValue = 0.0
+        timeAnimation.byValue = 0.0 //(2 * Double.pi)
+        clockFace.add(timeAnimation, forKey: "timeAnimationKey")
+        clockFace.transform = CATransform3DMakeRotation(secondsAngle / 180 * CGFloat.pi, 1, 0, 0)
+
     }
     
     func setupClockFaceLayer() -> CATextLayer

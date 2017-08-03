@@ -123,30 +123,6 @@ class ClockCG: NSView
         path.fill()
     }
     
-    func drawMinuteHand(minute: Int, second: Int)
-    {
-        let angleMinute = -Double(minute) * 6.0 + 90.0
-        let angleSecond = -Double(second) / 6.0 / 2.0
-        
-        let angle =  CGFloat((angleMinute + angleSecond) * Double.pi / 180)
-        
-        var start = CGPoint()
-        start.x = center.x - cos(angle) * radius * 0.10
-        start.y = center.x - sin(angle) * radius * 0.10
-        
-        var end = CGPoint()
-        end.x = center.x + cos(angle) * radius * 0.90
-        end.y = center.y + sin(angle) * radius * 0.90
-        
-        let path = NSBezierPath()
-        path.move(to: start)
-        path.line(to: end)
-        
-        path.lineWidth = CGFloat(2)
-        minutehandColor.setStroke()
-        path.stroke()
-        path.close()
-    }
     
     func drawHourHand(hour: Int, minute: Int)
     {
@@ -172,10 +148,34 @@ class ClockCG: NSView
         path.stroke()
         path.close()
     }
+
+    func drawMinuteHand(minute: Int, second: Int)
+    {
+        let angleMinute = -Double(minute) * 6.0 + 90.0
+        let angleSecond = -Double(second) / 6.0 / 2.0
+        
+        let angle =  CGFloat((angleMinute + angleSecond) * Double.pi / 180)
+        
+        var start = CGPoint()
+        start.x = center.x - cos(angle) * radius * 0.10
+        start.y = center.x - sin(angle) * radius * 0.10
+        
+        var end = CGPoint()
+        end.x = center.x + cos(angle) * radius * 0.90
+        end.y = center.y + sin(angle) * radius * 0.90
+        
+        let path = NSBezierPath()
+        path.move(to: start)
+        path.line(to: end)
+        
+        path.lineWidth = CGFloat(2)
+        minutehandColor.setStroke()
+        path.stroke()
+        path.close()
+    }
     
     func drawSecondHand(second: Int)
     {
-        let second = second
         let angle = CGFloat((-Double(second) * 360.0 / 60 + 90) * Double.pi / 180)
         
         var start = CGPoint()
