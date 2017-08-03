@@ -689,14 +689,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="395"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zfm-sk-kWy" customClass="Clock" customModule="myClock" customModuleProvider="target">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zfm-sk-kWy" customClass="ClockCG" customModule="myClock" customModuleProvider="target">
                                 <rect key="frame" x="20" y="120" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="0dx-In-vxR"/>
                                     <constraint firstAttribute="height" constant="200" id="mPP-0b-OoN"/>
                                 </constraints>
                             </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oyX-Ca-FGU" customClass="ClockOld" customModule="myClock" customModuleProvider="target">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oyX-Ca-FGU" customClass="ClockLayer" customModule="myClock" customModuleProvider="target">
                                 <rect key="frame" x="249" y="20" width="200" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="EmN-ym-E3L"/>
@@ -734,10 +734,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="clock" destination="Zfm-sk-kWy" id="qM3-tu-eC7"/>
-                        <outlet property="clockCG" destination="Zfm-sk-kWy" id="6DO-88-fBm"/>
-                        <outlet property="clockLayer" destination="oyX-Ca-FGU" id="LUe-gs-5bc"/>
-                        <outlet property="clockRetro" destination="oyX-Ca-FGU" id="t9z-aX-BD6"/>
+                        <outlet property="clockCG" destination="Zfm-sk-kWy" id="sjW-Bf-pHA"/>
+                        <outlet property="clockLayer" destination="oyX-Ca-FGU" id="pS1-xj-276"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

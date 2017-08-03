@@ -9,7 +9,7 @@ class ClockLayer : NSView
     
     @IBInspectable var backgroundColor :NSColor = NSColor.white
     @IBInspectable var borderColor     :NSColor = NSColor.darkGray
-    @IBInspectable var centreColor     :NSColor = NSColor.black
+    @IBInspectable var centerColor     :NSColor = NSColor.black
     @IBInspectable var showNumbers     :Bool    = true
     @IBInspectable var roman           :Bool    = false
     
@@ -284,8 +284,8 @@ class ClockLayer : NSView
         
         path.addArc(center: center, radius: radius * 0.05, startAngle: 0.0, endAngle: 2.0 * CGFloat.pi, clockwise: true)
         layer.path = path
-        layer.strokeColor = NSColor.black.cgColor
-        layer.fillColor = NSColor.black.cgColor
+        layer.strokeColor = centerColor.cgColor
+        layer.fillColor = centerColor.cgColor
         rootLayer.addSublayer(layer)
     }
 
