@@ -22,7 +22,7 @@ class ClockLayer : NSView
     let imageLayer   = CALayer()
     
     var clockFace = CATextLayer()
-    var clockTimer: Timer = Timer()
+    var clockTimer = Timer()
     
     var radius               = CGFloat(100.0)
     var offset               = CGFloat(5.0)
@@ -120,7 +120,7 @@ class ClockLayer : NSView
         hoursAnimation.duration = 60 * 60 * 12
         hoursAnimation.isRemovedOnCompletion = false
         hoursAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        hoursAnimation.fromValue = (-hourAngle * .pi / 180)
+        hoursAnimation.fromValue = (-hourAngle * CGFloat.pi / 180)
         hoursAnimation.byValue = (-2 * Double.pi)
         hourLayer.add(hoursAnimation, forKey: "HoursAnimationKey")
         
@@ -129,7 +129,7 @@ class ClockLayer : NSView
         minutesAnimation.duration = 60 * 60
         minutesAnimation.isRemovedOnCompletion = false
         minutesAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        minutesAnimation.fromValue = -(minuteAngle * .pi / 180)
+        minutesAnimation.fromValue = -(minuteAngle * CGFloat.pi / 180)
         minutesAnimation.byValue = (-2 * Double.pi)
         minuteLayer.add(minutesAnimation, forKey: "MinutesAnimationKey")
         
@@ -138,7 +138,7 @@ class ClockLayer : NSView
         secondsAnimation.duration = 60
         secondsAnimation.isRemovedOnCompletion = false
         secondsAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        secondsAnimation.fromValue = -(secondsAngle * .pi / 180)
+        secondsAnimation.fromValue = -(secondsAngle * CGFloat.pi / 180)
         secondsAnimation.byValue = (-2 * Double.pi)
         secondsLayer.add(secondsAnimation, forKey: "SecondAnimationKey")
         
@@ -154,7 +154,6 @@ class ClockLayer : NSView
         timeAnimation.byValue = 0.0 //(2 * Double.pi)
         clockFace.add(timeAnimation, forKey: "timeAnimationKey")
         clockFace.transform = CATransform3DMakeRotation(secondsAngle / 180 * CGFloat.pi, 1, 0, 0)
-
     }
     
     func setupClockFaceLayer() -> CATextLayer
@@ -267,11 +266,11 @@ class ClockLayer : NSView
             let angle = CGFloat((-(Double(i) * 30.0) + 90) * Double.pi / 180)
             let numberRect =  CGRect(
                 x: center.x + cos(angle) * txtRadius - numberAttr.size().width/2.0,
-                y: center.y + sin(angle) * txtRadius - numberAttr.size().height/2,
+                y: center.y + sin(angle) * txtRadius - numberAttr.size().height/2.0,
                 width: numberAttr.size().width,
                 height: numberAttr.size().height)
             
-            textLayer.foregroundColor = NSColor.black.cgColor
+            //textLayer.foregroundColor = NSColor.black.cgColor
             
             textLayer.frame = numberRect
             textLayer.string = numberAttr
@@ -286,7 +285,6 @@ class ClockLayer : NSView
         
         path.addArc(center: center, radius: radius * 0.05, startAngle: 0.0, endAngle: 2.0 * CGFloat.pi, clockwise: true)
         layer.path = path
-        layer.strokeColor = centerColor.cgColor
         layer.fillColor = centerColor.cgColor
         rootLayer.addSublayer(layer)
     }

@@ -13,22 +13,38 @@ class ViewController: NSViewController {
     @IBOutlet weak var clockLayer: ClockLayer!
     @IBOutlet weak var clockCG: ClockCG!
     
+    @IBOutlet weak var compass: TRACompass!
+    
+    @IBOutlet weak var slider: NSSlider!
+    
+    @IBOutlet weak var sliderText: NSTextField!
+    
+    
     var clockTimer = ClockTimer(interval: 1.0)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         clockCG.startTimer()
         
-        clockTimer.start { date in
-            self.clockLayer.time = date as NSDate
-        }
+        sliderText.doubleValue = round( slider.doubleValue)
+        compass.compassHeading = CGFloat(360 - slider.doubleValue)
+        
+        //        clockTimer.start { date in
+        //            self.clockLayer.time = date as NSDate
+        //        }
     }
     
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
         }
+    }
+    
+    @IBAction func sliderCompass(_ sender: Any) {
+        compass.compassHeading = CGFloat(360 - slider.doubleValue)
+        sliderText.doubleValue = round( slider.doubleValue)
     }
 }
 
@@ -46,7 +62,7 @@ class ClockTimer {
         {
             t.cancel()
         }
-
+        
         let timer1 = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags(rawValue: 0), queue: DispatchQueue.main)
         _ = DispatchTime.now() + Double(Int64(interval)) / Double(NSEC_PER_SEC)
         

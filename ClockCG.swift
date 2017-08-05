@@ -104,11 +104,11 @@ class ClockCG: NSView
             let number = NSAttributedString(string: str, attributes:[
                 NSAttributedStringKey.foregroundColor : NSColor.black,
                 NSAttributedStringKey.font : digitFont])
-            let angle = CGFloat((-(Double(i) * 30.0) + 90) * Double.pi / 180)
             
+            let angle = CGFloat((-(Double(i) * 30.0) + 90) * Double.pi / 180)
             let numberRect =  CGRect(
                 x: center.x + cos(angle) * txtRadius - number.size().width/2.0,
-                y: center.y + sin(angle) * txtRadius - number.size().height/2,
+                y: center.y + sin(angle) * txtRadius - number.size().height/2.0,
                 width:number.size().width,
                 height:number.size().height)
             number.draw(in: numberRect)
