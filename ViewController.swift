@@ -1,10 +1,13 @@
 //
-//  ViewController.swift
+//  ClockLayer.swift
 //  myClock
 //
-//  Created by thierryH24A on 06/07/2017.
-//  Copyright © 2017 thierryH24A. All rights reserved.
 //
+//  Copyright © 2017 thierry Hentic.
+//
+//  Licensed under Apache License 2.0
+//
+//  https://github.com/thierryH91200/myClock
 
 import Cocoa
 

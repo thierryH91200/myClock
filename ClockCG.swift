@@ -1,3 +1,15 @@
+//
+//  ClockLayer.swift
+//  myClock
+//
+//
+//  Copyright © 2017 thierry Hentic.
+//
+//  Licensed under Apache License 2.0
+//
+//  https://github.com/thierryH91200/myClock
+
+
 import Cocoa
 
 

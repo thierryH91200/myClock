@@ -2,14 +2,14 @@
 //  TRACompass.swift
 //  Compass
 //
-//  Created by Tomas Radvansky on 18/09/2015.
-//  Copyright © 2015 Radvansky Solutions. All rights reserved.
 //
+//  Copyright © 2017 thierry Hentic.
+//
+//  Licensed under Apache License 2.0
+//
+//  https://github.com/thierryH91200/myClock
 
 import Cocoa
-import MapKit
-import Quartz
-
 
 class TRACompass: NSView {
     
