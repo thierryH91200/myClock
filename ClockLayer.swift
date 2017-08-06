@@ -70,7 +70,7 @@ class ClockLayer : NSView
         radius = CGFloat(r * 0.9)
         offset = CGFloat(r - radius)
         
-        center = CGPoint(x: r, y: r + 100)
+        center = CGPoint(x: r, y: r )
  
         rootLayer.frame = self.frame
         rootLayer.anchorPoint = CGPoint(x:0, y:0)
@@ -153,48 +153,13 @@ class ClockLayer : NSView
         secondsAnimation.fromValue = -(secondsAngle * CGFloat.pi / 180)
         secondsAnimation.byValue = (-2 * Double.pi)
         secondsLayer.add(secondsAnimation, forKey: "SecondAnimationKey")
-        
-        clockFace = setupClockFaceLayer()
-        layer?.addSublayer(clockFace)
-        
-        let timeAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-        timeAnimation.repeatCount = .greatestFiniteMagnitude
-        timeAnimation.duration = 60.0
-        timeAnimation.isRemovedOnCompletion = false
-        timeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        timeAnimation.fromValue = 0.0
-        timeAnimation.byValue = 0.0 //(2 * Double.pi)
-        clockFace.add(timeAnimation, forKey: "timeAnimationKey")
-        clockFace.transform = CATransform3DMakeRotation(secondsAngle / 180 * CGFloat.pi, 1, 0, 0)
-    }
-    
-    func setupClockFaceLayer() -> CATextLayer
-    {
-        let clockFace = CATextLayer()
-        
-        clockFace.font = "Menlo" as CFTypeRef
-        clockFace.fontSize = 18.0
-        clockFace.shadowOpacity = 0.0
-        clockFace.anchorPoint = CGPoint(x: 0, y: 0)
-        clockFace.allowsFontSubpixelQuantization = true
-        clockFace.foregroundColor = CGColor(red: 13.0/255.0, green: 116.0/255.0, blue: 1.0, alpha: 1.0)
-        clockFace.bounds = CGRect(x: 0, y: 0, width: 200, height: 50)
-        clockFace.position = CGPoint(x:0, y:0)
-        clockFace.alignmentMode = kCAAlignmentCenter
-        clockFace.truncationMode = kCATruncationStart
-        
-        clockFace.addConstraint(constraint(attribute: .midX, relativeTo: "superlayer", attribute2: .midX))
-        clockFace.addConstraint(constraint(attribute: .midY, relativeTo: "superlayer", attribute2: .midY))
-        
-        clockFace.string = formatter.string(from: time as Date)
-        return clockFace
     }
  
     func drawBorder(){
         let layerBorder = CAShapeLayer()
         let path = CGMutablePath()
         
-        path.addArc(center: center, radius: radius, startAngle: CGFloat(0.0), endAngle: CGFloat(Double.pi) * 2, clockwise: true)
+        path.addArc(center: center, radius: radius, startAngle: CGFloat(0.0), endAngle: CGFloat.pi * 2.0, clockwise: true)
         layerBorder.path = path
         layerBorder.strokeColor = NSColor.darkGray.cgColor
         layerBorder.lineWidth = 1.0
@@ -251,13 +216,12 @@ class ClockLayer : NSView
                 NSAttributedStringKey.font : digitFont])
             
             let angle = CGFloat((-(Double(i) * 30.0) + 90) * Double.pi / 180)
+            
             let numberRect =  CGRect(
                 x: center.x + cos(angle) * txtRadius - numberAttr.size().width/2.0,
                 y: center.y + sin(angle) * txtRadius - numberAttr.size().height/2.0,
                 width: numberAttr.size().width,
                 height: numberAttr.size().height)
-            
-            //textLayer.foregroundColor = NSColor.black.cgColor
             
             textLayer.frame = numberRect
             textLayer.string = numberAttr
@@ -288,11 +252,6 @@ class ClockLayer : NSView
         
         layer?.addSublayer(imageLayer)
     }
-}
-
-func constraint(attribute: CAConstraintAttribute, relativeTo: String, attribute2: CAConstraintAttribute) -> CAConstraint
-{
-    return CAConstraint(attribute: attribute, relativeTo: "superlayer", attribute: attribute2)
 }
 
 extension NSImage {

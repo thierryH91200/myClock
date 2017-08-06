@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13168.3"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -687,18 +686,24 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="myClock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="754"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zfm-sk-kWy" customClass="ClockCG" customModule="myClock" customModuleProvider="target">
-                                <rect key="frame" x="20" y="481" width="200" height="200"/>
+                                <rect key="frame" x="20" y="315" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="0dx-In-vxR"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="aDG-fR-eWP"/>
                                     <constraint firstAttribute="height" constant="200" id="mPP-0b-OoN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="z2k-td-3E1"/>
                                 </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pTb-6X-vTL">
-                                <rect key="frame" x="299" y="704" width="100" height="30"/>
+                                <rect key="frame" x="252" y="546" width="100" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="IA2-ns-yWC"/>
+                                    <constraint firstAttribute="height" constant="29" id="xot-Lk-WvI"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="CALayer" id="i14-YN-IiJ">
                                     <font key="font" metaFont="system" size="24"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -706,7 +711,11 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vJ7-cc-9Ze">
-                                <rect key="frame" x="18" y="704" width="161" height="30"/>
+                                <rect key="frame" x="18" y="546" width="161" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="B8B-Un-d94"/>
+                                    <constraint firstAttribute="width" constant="157" id="dnj-O9-eae"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Core Graphics" id="msw-eF-i1C">
                                     <font key="font" metaFont="system" size="24"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -714,25 +723,34 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="oyX-Ca-FGU" customClass="ClockLayer" customModule="myClock" customModuleProvider="target">
-                                <rect key="frame" x="249" y="381" width="200" height="300"/>
+                                <rect key="frame" x="251" y="315" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="EmN-ym-E3L"/>
-                                    <constraint firstAttribute="height" constant="300" id="MtC-GM-YRD"/>
+                                    <constraint firstAttribute="width" constant="200" id="Ufj-fw-t62"/>
+                                    <constraint firstAttribute="height" constant="200" id="hIJ-UP-PmD"/>
                                 </constraints>
                             </customView>
                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fqr-Pe-RM4">
-                                <rect key="frame" x="242" y="91" width="214" height="19"/>
+                                <rect key="frame" x="247" y="60" width="209" height="19"/>
                                 <sliderCell key="cell" state="on" alignment="left" maxValue="360" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="v2M-dR-j3W"/>
                                 <connections>
                                     <action selector="sliderCompass:" target="XfG-lQ-9wD" id="iKE-Xw-zQ9"/>
                                 </connections>
                             </slider>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="CnR-RM-8fY" customClass="CompassLayer" customModule="myClock" customModuleProvider="target">
-                                <rect key="frame" x="244" y="152" width="200" height="200"/>
+                                <rect key="frame" x="249" y="97" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="UTv-tN-PYy"/>
+                                    <constraint firstAttribute="width" constant="200" id="ytd-80-tmX"/>
+                                </constraints>
                             </customView>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nlc-nN-ZkZ">
-                                <rect key="frame" x="244" y="54" width="96" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nlc-nN-ZkZ">
+                                <rect key="frame" x="249" y="20" width="96" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="2GU-16-goA"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="O9v-v3-uLT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="fMe-2k-hvf"/>
+                                    <constraint firstAttribute="height" constant="22" id="qNt-q5-maT"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="Gut-le-vsY">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -741,29 +759,35 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="73" id="1GG-jd-0Up"/>
-                            <constraint firstAttribute="trailing" secondItem="oyX-Ca-FGU" secondAttribute="trailing" constant="31" id="40U-pp-IDu"/>
-                            <constraint firstItem="pTb-6X-vTL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vJ7-cc-9Ze" secondAttribute="trailing" constant="8" symbolic="YES" id="4X8-qQ-jpm"/>
-                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="centerX" secondItem="pTb-6X-vTL" secondAttribute="centerX" id="C59-Lj-gvq"/>
-                            <constraint firstAttribute="bottom" secondItem="Fqr-Pe-RM4" secondAttribute="bottom" constant="93" id="INo-QT-zEk"/>
-                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="top" secondItem="CnR-RM-8fY" secondAttribute="bottom" constant="44" id="K6y-NT-qyB"/>
-                            <constraint firstItem="oyX-Ca-FGU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="249" id="M28-CZ-S5x"/>
-                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="bottom" secondItem="oyX-Ca-FGU" secondAttribute="bottom" constant="-100" id="MYW-UG-5T7"/>
-                            <constraint firstItem="oyX-Ca-FGU" firstAttribute="leading" secondItem="Zfm-sk-kWy" secondAttribute="trailing" constant="29" id="Oxs-H8-chp"/>
-                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="centerX" secondItem="oyX-Ca-FGU" secondAttribute="centerX" id="Sn7-Mg-dC9"/>
-                            <constraint firstItem="pTb-6X-vTL" firstAttribute="firstBaseline" secondItem="vJ7-cc-9Ze" secondAttribute="firstBaseline" id="UY6-pG-QUd"/>
-                            <constraint firstAttribute="trailing" secondItem="CnR-RM-8fY" secondAttribute="trailing" constant="36" id="YD0-pQ-Ddu"/>
-                            <constraint firstItem="oyX-Ca-FGU" firstAttribute="top" secondItem="pTb-6X-vTL" secondAttribute="bottom" constant="23" id="Z4c-n3-LM3"/>
-                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="244" id="ZlM-wF-kYP"/>
-                            <constraint firstItem="pTb-6X-vTL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="b0L-yO-M5f"/>
-                            <constraint firstItem="pTb-6X-vTL" firstAttribute="baseline" secondItem="vJ7-cc-9Ze" secondAttribute="baseline" id="gJ2-rE-cS5"/>
-                            <constraint firstItem="CnR-RM-8fY" firstAttribute="top" secondItem="oyX-Ca-FGU" secondAttribute="bottom" constant="29" id="hB4-Ib-Om3"/>
-                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="top" secondItem="oyX-Ca-FGU" secondAttribute="top" id="ldQ-dB-HxB"/>
-                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="leading" secondItem="Zfm-sk-kWy" secondAttribute="leading" constant="224" id="ofi-CR-Ald"/>
-                            <constraint firstAttribute="bottom" secondItem="Zfm-sk-kWy" secondAttribute="bottom" constant="481" id="p5k-RD-2du"/>
-                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="uER-wm-qIN"/>
-                            <constraint firstItem="CnR-RM-8fY" firstAttribute="leading" secondItem="Fqr-Pe-RM4" secondAttribute="leading" id="vWS-AI-0K7"/>
-                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="leading" secondItem="vJ7-cc-9Ze" secondAttribute="leading" constant="224" id="ynZ-5c-eFI"/>
+                            <constraint firstItem="Nlc-nN-ZkZ" firstAttribute="top" secondItem="Fqr-Pe-RM4" secondAttribute="bottom" constant="20" id="6sG-u2-Von"/>
+                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BUg-A0-2e3"/>
+                            <constraint firstItem="vJ7-cc-9Ze" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="31" id="F6V-hM-0tj"/>
+                            <constraint firstItem="vJ7-cc-9Ze" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FWp-7S-gx2"/>
+                            <constraint firstAttribute="bottom" secondItem="Zfm-sk-kWy" secondAttribute="bottom" constant="315" id="FoW-dn-8WX"/>
+                            <constraint firstAttribute="trailing" secondItem="CnR-RM-8fY" secondAttribute="trailing" constant="31" id="H9p-EJ-57A"/>
+                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="top" secondItem="vJ7-cc-9Ze" secondAttribute="bottom" constant="31" id="Hih-ss-1FT"/>
+                            <constraint firstItem="CnR-RM-8fY" firstAttribute="top" secondItem="oyX-Ca-FGU" secondAttribute="bottom" constant="18" id="Hp8-5n-CQT"/>
+                            <constraint firstItem="oyX-Ca-FGU" firstAttribute="leading" secondItem="Zfm-sk-kWy" secondAttribute="trailing" constant="31" id="LxV-lY-Win"/>
+                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="top" secondItem="CnR-RM-8fY" secondAttribute="bottom" constant="20" id="OG4-sq-mNN"/>
+                            <constraint firstItem="Nlc-nN-ZkZ" firstAttribute="top" secondItem="Fqr-Pe-RM4" secondAttribute="bottom" constant="20" id="Oem-2f-7hG"/>
+                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="leading" secondItem="CnR-RM-8fY" secondAttribute="leading" id="OzQ-ZQ-qZs"/>
+                            <constraint firstItem="oyX-Ca-FGU" firstAttribute="top" secondItem="pTb-6X-vTL" secondAttribute="bottom" constant="31" id="TDV-mR-XqP"/>
+                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="centerX" secondItem="oyX-Ca-FGU" secondAttribute="centerX" id="TgR-F8-6Oc"/>
+                            <constraint firstAttribute="bottom" secondItem="Fqr-Pe-RM4" secondAttribute="bottom" constant="62" id="Xhs-lI-246"/>
+                            <constraint firstItem="CnR-RM-8fY" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="249" id="bGE-zW-U0V"/>
+                            <constraint firstItem="oyX-Ca-FGU" firstAttribute="top" secondItem="pTb-6X-vTL" secondAttribute="bottom" constant="31" id="bNa-bJ-hW7"/>
+                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="top" secondItem="vJ7-cc-9Ze" secondAttribute="bottom" constant="31" id="cX1-rg-e9w"/>
+                            <constraint firstItem="Fqr-Pe-RM4" firstAttribute="leading" secondItem="Nlc-nN-ZkZ" secondAttribute="leading" id="cdI-1L-PmF"/>
+                            <constraint firstAttribute="bottom" secondItem="Nlc-nN-ZkZ" secondAttribute="bottom" constant="20" id="dLy-32-kJx"/>
+                            <constraint firstItem="oyX-Ca-FGU" firstAttribute="leading" secondItem="Zfm-sk-kWy" secondAttribute="trailing" constant="31" id="eNy-s3-Pi2"/>
+                            <constraint firstItem="CnR-RM-8fY" firstAttribute="top" secondItem="oyX-Ca-FGU" secondAttribute="bottom" constant="18" id="gKF-ZP-gbh"/>
+                            <constraint firstItem="pTb-6X-vTL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="31" id="gOr-XP-l20"/>
+                            <constraint firstAttribute="trailing" secondItem="Nlc-nN-ZkZ" secondAttribute="trailing" constant="135" id="iqB-tb-Dro"/>
+                            <constraint firstAttribute="trailing" secondItem="oyX-Ca-FGU" secondAttribute="trailing" constant="29" id="lXo-ko-l7Z"/>
+                            <constraint firstItem="pTb-6X-vTL" firstAttribute="leading" secondItem="vJ7-cc-9Ze" secondAttribute="trailing" constant="77" id="mIa-d0-k2V"/>
+                            <constraint firstItem="Nlc-nN-ZkZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="249" id="vQn-Fk-Wul"/>
+                            <constraint firstItem="pTb-6X-vTL" firstAttribute="leading" secondItem="vJ7-cc-9Ze" secondAttribute="trailing" constant="77" id="y7H-IT-tSz"/>
+                            <constraint firstAttribute="trailing" secondItem="pTb-6X-vTL" secondAttribute="trailing" constant="130" id="zdn-zX-je9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -776,7 +800,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="897"/>
+            <point key="canvasLocation" x="75" y="823"/>
         </scene>
     </scenes>
 </document>
