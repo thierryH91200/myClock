@@ -15,8 +15,7 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var clockLayer: ClockLayer!
     @IBOutlet weak var clockCG: ClockCG!
-    
-    @IBOutlet weak var compass: TRACompass!
+    @IBOutlet weak var compass: CompassLayer!
     
     @IBOutlet weak var slider: NSSlider!
     
@@ -24,7 +23,6 @@ class ViewController: NSViewController {
     
     
     var clockTimer = ClockTimer(interval: 1.0)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

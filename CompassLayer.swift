@@ -11,7 +11,7 @@
 
 import Cocoa
 
-class TRACompass: NSView {
+class CompassLayer: NSView {
     
     let rootLayer    = CALayer()
     var backGroundLayer   = CALayer()

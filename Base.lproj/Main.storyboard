@@ -727,7 +727,7 @@
                                     <action selector="sliderCompass:" target="XfG-lQ-9wD" id="iKE-Xw-zQ9"/>
                                 </connections>
                             </slider>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="CnR-RM-8fY" customClass="TRACompass" customModule="myClock" customModuleProvider="target">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="CnR-RM-8fY" customClass="CompassLayer" customModule="myClock" customModuleProvider="target">
                                 <rect key="frame" x="244" y="152" width="200" height="200"/>
                             </customView>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nlc-nN-ZkZ">
