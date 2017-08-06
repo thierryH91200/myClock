@@ -189,31 +189,6 @@ class ClockLayer : NSView
         clockFace.string = formatter.string(from: time as Date)
         return clockFace
     }
-    
-    func doInitSetup() {
-        
-        //        let app = NSApplication.shared
-        //
-        //        let enterForegroundNotification = NotificationCenter.default.addObserver (
-        //            forName : NSNotification.Name.didBecomeActiveNotification ,
-        //            object: nil, queue: nil, using: {(_ note: Notification) -> Void in
-        //                //NSLog(@"Returning from background");
-        //                self.setTimeToNow(animated: false)
-        //                if isRunning
-        //                {
-        //                    isRunning = true
-        //                }
-        //        })
-        //        let enterBackground           = NotificationCenter.default.addObserver( forName: NSNotification.Name., object: nil, queue: nil, using: {(_ note: Notification) -> Void in
-        //            //NSLog(@"Exiting to background");
-        //            clockTimer.invalidate()
-        //        })
-    }
-    
-    func setTimeToNow(animated: Bool) {
-//        setTime(Date(), animated: animated)
-    }
-    
  
     func drawBorder(){
         let layerBorder = CAShapeLayer()

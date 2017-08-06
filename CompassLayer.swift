@@ -21,23 +21,22 @@ class CompassLayer: NSView {
     
      public var compassHeading: CGFloat {
         get {
-            var heading = atan2f(Float(arrowLayer.transform.m12), Float(arrowLayer.transform.m11))
-            heading = Float(RadiansToDegrees(Double(heading)))
+            var heading = CGFloat(atan2f(Float(arrowLayer.transform.m12), Float(arrowLayer.transform.m11)))
+            heading = RadiansToDegrees(heading)
             
             if heading < 0 {
                 heading += 360.0
             }
-            
-            return CGFloat(round(heading))
+            return round(heading)
         }
-        set(newHeading) {
-            
-            if newHeading >= 0 && newHeading <= 360 {
-               
+        set(newHeading)
+        {
+            if newHeading >= 0 && newHeading <= 360
+            {
                 // This animation DOES rotate the compass as it should.
                 let animation = CABasicAnimation()
-                let fromValue = DegreesToRadians(Double(compassHeading))
-                let toValue = DegreesToRadians(Double( newHeading ))
+                let fromValue = DegreesToRadians(compassHeading)
+                let toValue = DegreesToRadians( newHeading )
                 
                 animation.fromValue = fromValue
                 animation.toValue = toValue
@@ -84,11 +83,11 @@ class CompassLayer: NSView {
         layer?.addSublayer(arrowLayer)
     }
     
-    func rotateArrowView ( degrees: Double)
+    func rotateArrowView ( degrees: CGFloat)
     {
         let rads = DegreesToRadians(degrees)
         
-        arrowLayer.transform = CATransform3DMakeRotation(CGFloat(rads), 0, 0, 1)
+        arrowLayer.transform = CATransform3DMakeRotation(rads, 0, 0, 1)
         
         // This animation DOES rotate the compass as it should.
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -103,11 +102,11 @@ class CompassLayer: NSView {
         arrowLayer.add(animation, forKey:"rotateAnimation")
     }
     
-    func DegreesToRadians (_ value:Double) -> Double {
+    func DegreesToRadians (_ value:CGFloat) -> CGFloat {
         return value * .pi / 180.0
     }
     
-    func RadiansToDegrees (_ value:Double) -> Double {
+    func RadiansToDegrees (_ value:CGFloat) -> CGFloat {
         return value * 180.0 / .pi
     }
     

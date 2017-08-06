@@ -27,24 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     {
         return true
     }
-    
-    func didReceiveRemoteNotification ()
-    {
-        print("didReceiveRemoteNotification")
-    }
-    
-    
-    func applicationWillBecomeActive(_ notification: Notification) {
-        print("applicationWillBecomeActive")
         
-        let vc: NSViewController? = getVisibleViewController(NSApplication.shared.keyWindow?.contentViewController) as? ViewController
-
-        var clockTimer = ClockTimer(interval: 1.0)
-       
-//        vc.clockTimer.start { date in
-//            vc.clockRetro.time = date as NSDate
-//            
-//        }
+    func applicationWillBecomeActive(_ notification: Notification)
+    {
+        print("applicationWillBecomeActive")
     }
     
     func applicationWillResignActive(_ notification: Notification)
@@ -52,28 +38,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("applicationWillResignActive")
     }
     
-    func getVisibleViewController(_ rootViewController: NSViewController?) -> NSViewController? {
-        
-        var rootVC = rootViewController
-        if rootVC == nil {
-            rootVC = NSApplication.shared.keyWindow?.contentViewController
-        }
-        
-        if rootVC?.childViewControllers == nil {
-            return rootVC
-        }
-        
-        if let presented = rootVC {
-            if presented.isKind(of: NSViewController.self) {
-                let navigationController = presented
-                return navigationController
-            }
-            
-            return getVisibleViewController(presented)
-        }
-        return nil
-    }
-    
-
 }
 
