@@ -18,9 +18,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var compass: CompassLayer!
     
     @IBOutlet weak var slider: NSSlider!
-    
     @IBOutlet weak var sliderText: NSTextField!
-    
     
     var clockTimer = ClockTimer(interval: 1.0)
     
