@@ -47,7 +47,7 @@ class CompassLayer: NSView {
                 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 animation.duration = 2
                 
-                arrowLayer.transform = CATransform3DMakeRotation(CGFloat(toValue), 0, 0, 1)
+                arrowLayer.transform = CATransform3DMakeRotation( toValue, 0, 0, 1)
                 arrowLayer.add(animation, forKey:"rotateAnimation")
             }
         }

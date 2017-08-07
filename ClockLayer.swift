@@ -73,7 +73,8 @@ class ClockLayer : NSView
         center = CGPoint(x: r, y: r )
  
         rootLayer.frame = self.frame
-        rootLayer.anchorPoint = CGPoint(x:0, y:0)
+        rootLayer.anchorPoint = CGPoint(x:0.5, y:0.5)
+        rootLayer.borderWidth = 2.0
         
         self.layer = rootLayer
         self.wantsLayer = true
@@ -109,6 +110,11 @@ class ClockLayer : NSView
         secondsLayer.borderColor = NSColor.red.cgColor
         layer?.addSublayer(secondsLayer)
         
+        initAnimation()
+    }
+    
+    func initAnimation()
+    {
         //Place the hands at correct location
         let calendar = Calendar.current
         var dateComponents = calendar.dateComponents([.second, .minute, .hour], from: Date())
@@ -240,14 +246,14 @@ class ClockLayer : NSView
         rootLayer.addSublayer(layer)
     }
 
-    func setImage()
+    func setImage(name : String)
     {
-        let image = NSImage(named: NSImage.Name(rawValue: "ClockFace.jpg"))
+        let image = NSImage(named: NSImage.Name(rawValue: name))
         let size = NSSize(width: 200, height: 200)
         image?.size = size
-        imageLayer.anchorPoint = CGPoint(x:0,y:0)
+        imageLayer.anchorPoint = CGPoint(x:0.5,y:0.5)
         imageLayer.bounds = CGRect(x: 0, y: 0, width: 200, height: 200)
-        imageLayer.position = CGPoint(x: 0, y: 100)
+        imageLayer.position = center
         imageLayer.contents = image
         
         layer?.addSublayer(imageLayer)

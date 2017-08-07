@@ -701,7 +701,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pTb-6X-vTL">
                                 <rect key="frame" x="252" y="546" width="100" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="IA2-ns-yWC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="IA2-ns-yWC"/>
                                     <constraint firstAttribute="height" constant="29" id="xot-Lk-WvI"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="CALayer" id="i14-YN-IiJ">
@@ -714,7 +714,6 @@
                                 <rect key="frame" x="18" y="546" width="161" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="B8B-Un-d94"/>
-                                    <constraint firstAttribute="width" constant="157" id="dnj-O9-eae"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Core Graphics" id="msw-eF-i1C">
                                     <font key="font" metaFont="system" size="24"/>
@@ -776,7 +775,6 @@
                             <constraint firstAttribute="bottom" secondItem="Fqr-Pe-RM4" secondAttribute="bottom" constant="62" id="Xhs-lI-246"/>
                             <constraint firstItem="CnR-RM-8fY" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="249" id="bGE-zW-U0V"/>
                             <constraint firstItem="oyX-Ca-FGU" firstAttribute="top" secondItem="pTb-6X-vTL" secondAttribute="bottom" constant="31" id="bNa-bJ-hW7"/>
-                            <constraint firstItem="Zfm-sk-kWy" firstAttribute="top" secondItem="vJ7-cc-9Ze" secondAttribute="bottom" constant="31" id="cX1-rg-e9w"/>
                             <constraint firstItem="Fqr-Pe-RM4" firstAttribute="leading" secondItem="Nlc-nN-ZkZ" secondAttribute="leading" id="cdI-1L-PmF"/>
                             <constraint firstAttribute="bottom" secondItem="Nlc-nN-ZkZ" secondAttribute="bottom" constant="20" id="dLy-32-kJx"/>
                             <constraint firstItem="oyX-Ca-FGU" firstAttribute="leading" secondItem="Zfm-sk-kWy" secondAttribute="trailing" constant="31" id="eNy-s3-Pi2"/>
@@ -784,9 +782,8 @@
                             <constraint firstItem="pTb-6X-vTL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="31" id="gOr-XP-l20"/>
                             <constraint firstAttribute="trailing" secondItem="Nlc-nN-ZkZ" secondAttribute="trailing" constant="135" id="iqB-tb-Dro"/>
                             <constraint firstAttribute="trailing" secondItem="oyX-Ca-FGU" secondAttribute="trailing" constant="29" id="lXo-ko-l7Z"/>
-                            <constraint firstItem="pTb-6X-vTL" firstAttribute="leading" secondItem="vJ7-cc-9Ze" secondAttribute="trailing" constant="77" id="mIa-d0-k2V"/>
                             <constraint firstItem="Nlc-nN-ZkZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="249" id="vQn-Fk-Wul"/>
-                            <constraint firstItem="pTb-6X-vTL" firstAttribute="leading" secondItem="vJ7-cc-9Ze" secondAttribute="trailing" constant="77" id="y7H-IT-tSz"/>
+                            <constraint firstItem="pTb-6X-vTL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vJ7-cc-9Ze" secondAttribute="trailing" symbolic="YES" id="y7H-IT-tSz"/>
                             <constraint firstAttribute="trailing" secondItem="pTb-6X-vTL" secondAttribute="trailing" constant="130" id="zdn-zX-je9"/>
                         </constraints>
                     </view>

@@ -37,6 +37,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     {
         print("applicationWillResignActive")
     }
-    
 }
 
