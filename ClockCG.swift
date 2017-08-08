@@ -50,6 +50,11 @@ class ClockCG: NSView
         center = CGPoint(x: r, y: r)
         
         drawBorder()
+        drawCentre()
+        if showNumbers {
+            drawNumbers()
+        }
+
         drawTicks()
         
         let cal = Calendar.current
@@ -60,11 +65,7 @@ class ClockCG: NSView
         drawMinuteHand(minute: components.minute!, second: components.second!)
         drawSecondHand(second: components.second!)
         
-        drawCentre()
-        if showNumbers {
-            drawNumbers()
-        }
-    }
+     }
     
     func drawBorder(){
         borderColor.setStroke()

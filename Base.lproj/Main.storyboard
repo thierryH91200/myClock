@@ -686,7 +686,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="myClock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="606"/>
+                        <rect key="frame" x="0.0" y="0.0" width="787" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zfm-sk-kWy" customClass="ClockCG" customModule="myClock" customModuleProvider="target">
@@ -756,14 +756,30 @@
                                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </textFieldCell>
                             </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="HfH-73-cSc" customClass="ClockLayer2" customModule="myClock" customModuleProvider="target">
+                                <rect key="frame" x="477" y="315" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="8Oq-YZ-HvD"/>
+                                    <constraint firstAttribute="width" constant="200" id="if9-Kt-BvB"/>
+                                </constraints>
+                            </customView>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghd-AP-Ory" customClass="ClockLayer" customModule="myClock" customModuleProvider="target">
+                                <rect key="frame" x="477" y="247" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f8e-yB-97b" customClass="ClockLayer2" customModule="myClock" customModuleProvider="target">
+                                <rect key="frame" x="552" y="247" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="HfH-73-cSc" firstAttribute="top" secondItem="CnR-RM-8fY" secondAttribute="top" constant="-218" id="5DB-HI-BdH"/>
                             <constraint firstItem="Nlc-nN-ZkZ" firstAttribute="top" secondItem="Fqr-Pe-RM4" secondAttribute="bottom" constant="20" id="6sG-u2-Von"/>
                             <constraint firstItem="Zfm-sk-kWy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BUg-A0-2e3"/>
                             <constraint firstItem="vJ7-cc-9Ze" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="31" id="F6V-hM-0tj"/>
                             <constraint firstItem="vJ7-cc-9Ze" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FWp-7S-gx2"/>
                             <constraint firstAttribute="bottom" secondItem="Zfm-sk-kWy" secondAttribute="bottom" constant="315" id="FoW-dn-8WX"/>
-                            <constraint firstAttribute="trailing" secondItem="CnR-RM-8fY" secondAttribute="trailing" constant="31" id="H9p-EJ-57A"/>
+                            <constraint firstAttribute="trailing" secondItem="CnR-RM-8fY" secondAttribute="trailing" constant="338" id="H9p-EJ-57A"/>
                             <constraint firstItem="Zfm-sk-kWy" firstAttribute="top" secondItem="vJ7-cc-9Ze" secondAttribute="bottom" constant="31" id="Hih-ss-1FT"/>
                             <constraint firstItem="CnR-RM-8fY" firstAttribute="top" secondItem="oyX-Ca-FGU" secondAttribute="bottom" constant="18" id="Hp8-5n-CQT"/>
                             <constraint firstItem="oyX-Ca-FGU" firstAttribute="leading" secondItem="Zfm-sk-kWy" secondAttribute="trailing" constant="31" id="LxV-lY-Win"/>
@@ -778,13 +794,14 @@
                             <constraint firstItem="Fqr-Pe-RM4" firstAttribute="leading" secondItem="Nlc-nN-ZkZ" secondAttribute="leading" id="cdI-1L-PmF"/>
                             <constraint firstAttribute="bottom" secondItem="Nlc-nN-ZkZ" secondAttribute="bottom" constant="20" id="dLy-32-kJx"/>
                             <constraint firstItem="oyX-Ca-FGU" firstAttribute="leading" secondItem="Zfm-sk-kWy" secondAttribute="trailing" constant="31" id="eNy-s3-Pi2"/>
+                            <constraint firstItem="CnR-RM-8fY" firstAttribute="leading" secondItem="HfH-73-cSc" secondAttribute="trailing" constant="-428" id="f4T-5E-gDE"/>
                             <constraint firstItem="CnR-RM-8fY" firstAttribute="top" secondItem="oyX-Ca-FGU" secondAttribute="bottom" constant="18" id="gKF-ZP-gbh"/>
                             <constraint firstItem="pTb-6X-vTL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="31" id="gOr-XP-l20"/>
-                            <constraint firstAttribute="trailing" secondItem="Nlc-nN-ZkZ" secondAttribute="trailing" constant="135" id="iqB-tb-Dro"/>
-                            <constraint firstAttribute="trailing" secondItem="oyX-Ca-FGU" secondAttribute="trailing" constant="29" id="lXo-ko-l7Z"/>
+                            <constraint firstAttribute="trailing" secondItem="Nlc-nN-ZkZ" secondAttribute="trailing" constant="442" id="iqB-tb-Dro"/>
+                            <constraint firstAttribute="trailing" secondItem="oyX-Ca-FGU" secondAttribute="trailing" constant="336" id="lXo-ko-l7Z"/>
                             <constraint firstItem="Nlc-nN-ZkZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="249" id="vQn-Fk-Wul"/>
                             <constraint firstItem="pTb-6X-vTL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vJ7-cc-9Ze" secondAttribute="trailing" symbolic="YES" id="y7H-IT-tSz"/>
-                            <constraint firstAttribute="trailing" secondItem="pTb-6X-vTL" secondAttribute="trailing" constant="130" id="zdn-zX-je9"/>
+                            <constraint firstAttribute="trailing" secondItem="pTb-6X-vTL" secondAttribute="trailing" constant="437" id="zdn-zX-je9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -797,7 +814,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="823"/>
+            <point key="canvasLocation" x="228.5" y="823"/>
         </scene>
     </scenes>
 </document>
