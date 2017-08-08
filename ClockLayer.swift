@@ -25,35 +25,19 @@ class ClockLayer : NSView
     @IBInspectable var showNumbers     :Bool    = true
     @IBInspectable var roman           :Bool    = false
     
-    let digitFont  = NSFont(name : "HelveticaNeue-Thin", size  : CGFloat(5))!
+    let digitFont  = NSFont(name : "HelveticaNeue-Thin", size  : CGFloat(15))!
     
-    var hourLayer    =  CALayer()
-    var minuteLayer  =  CALayer()
-    var secondsLayer =  CALayer()
+    var hourLayer    = CALayer()
+    var minuteLayer  = CALayer()
+    var secondsLayer = CALayer()
     let rootLayer    = CALayer()
     let imageLayer   = CALayer()
-    
-    var clockFace = CATextLayer()
-    var clockTimer = Timer()
     
     var radius               = CGFloat(100.0)
     
     var center               = CGPoint()
     var textRadiusMultiplier = CGFloat(0.8)
-    
-//    var time: NSDate = NSDate() {
-//        didSet {
-//            clockFace.string = formatter.string(from: time as Date)
-//        }
-//    }
-//    
-//    lazy var formatter: DateFormatter = {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "EEE dd MMM\nHH:mm:ss"
-//        formatter.timeZone = NSTimeZone.system
-//        return formatter
-//    }()
-    
+        
     override init(frame frameRect: NSRect) {
         super.init(frame:frameRect)
     }

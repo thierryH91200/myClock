@@ -25,13 +25,12 @@ class ClockLayer2 : NSView
     @IBInspectable var showNumbers     :Bool    = true
     @IBInspectable var roman           :Bool    = false
     
-    let digitFont  = NSFont(name : "HelveticaNeue-Thin", size  : CGFloat(5))!
+    let digitFont  = NSFont(name : "HelveticaNeue-Thin", size  : CGFloat(15))!
     
     var hourLayer    =  CALayer()
     var minuteLayer  =  CALayer()
     var secondsLayer =  CALayer()
     let rootLayer    = CALayer()
-    
     
     var clockFace = CATextLayer()
     var clockTimer = Timer()
